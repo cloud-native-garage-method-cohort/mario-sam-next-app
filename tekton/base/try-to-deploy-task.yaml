@@ -28,8 +28,6 @@ spec:
 
         echo -e "Deploying into: ${APP_NAMESPACE}"
 
-        kubectl delete -n ${APP_NAMESPACE} -f ./k8s/manifests.yaml --validate=false
-
         kubectl apply -n ${APP_NAMESPACE} -f ./k8s/manifests.yaml --validate=false > results.out
         cat results.out
     - name: verify-deploy
