@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: next-js-sample-app-deployment
+  labels:
+    app: next-js-sample-app
+    app.kubernetes.io/instance: next-js-sample-app-instance
+    app.kubernetes.io/name: next-js-sample-app
+    app.openshift.io/runtime: next-js-sample-app
+spec:
+  selector:
+    matchLabels:
+      app: next-js-sample-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: next-js-sample-app
+    spec:
+      containers:
+      - name: next-js-sample-app
+        image: quay.io/samchinellato/next-js-sample-app:0b2c92569828d7b6f7a41577b2935c25ca0bee84
+        ports:
+        - containerPort: 3000

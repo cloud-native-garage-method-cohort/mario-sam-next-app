@@ -1,0 +1,24 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: next-js-sample-app-pipeline-run-
+spec:
+  pipelineRef:
+    name: nodejs-pipeline
+  params:
+    - name: app-name
+      value: next-js-sample-app
+    - name: source-repo
+      value: https://github.com/cloud-native-garage-method-cohort/mario-sam-next-app.git
+    - name: image-repo
+      value: quay.io/samchinellato/next-js-sample-app
+  serviceAccountName: build-bot
+  workspaces:
+    - name: pipeline-shared-data
+      volumeClaimTemplate:
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 1Gi
