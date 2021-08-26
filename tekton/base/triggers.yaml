@@ -59,7 +59,7 @@ spec:
         generateName: next-js-sample-app-pipeline-
       spec:
         pipelineRef:
-          name: nodejs-pipeline
+          name: next-js-pipeline
         serviceAccountName: build-bot
         params:
           - name: app-name
