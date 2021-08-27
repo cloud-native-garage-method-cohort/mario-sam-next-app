@@ -22,3 +22,7 @@ spec:
         image: quay.io/samchinellato/next-js-sample-app:0b2c92569828d7b6f7a41577b2935c25ca0bee84
         ports:
         - containerPort: 3000
+        env:
+          - name: PETSTORE_URL
+            value: quarkus-sample-app-jvm.mario-graef-quarkus-sample-app.svc.cluster.local:8080/pets
+          
