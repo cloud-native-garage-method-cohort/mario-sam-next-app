@@ -32,3 +32,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+.odo/env
+.odo/odo-file-index.json
